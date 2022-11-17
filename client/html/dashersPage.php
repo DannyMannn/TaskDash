@@ -2,13 +2,13 @@
 <html lang="es">
 <head>
     <?php include("./headInfo.php"); ?>
-    <title>Home</title>
+    <title>Dashers</title>
 </head>
 <body>
     <?php include("./navBar.php"); ?>
     <div class="document">
         <?php 
-            print("Esto es el Home");
+            print("Página de Dashers");
         ?>
     </div>
      

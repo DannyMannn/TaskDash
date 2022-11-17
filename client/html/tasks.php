@@ -8,7 +8,7 @@
     <?php include("./navBar.php"); ?>
     <div class="document">
         <?php 
-            print("Esto es el Home");
+            print("Página de Tasks");
         ?>
     </div>
      
