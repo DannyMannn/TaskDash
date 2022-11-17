@@ -3,5 +3,7 @@
     padding: 2%;
     margin: 2% auto;
 }
-
+.btn-primary{
+    background-color: #0c81ff !important;
+}
 /*add scree-size meta*/

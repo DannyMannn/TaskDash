@@ -1,0 +1,8 @@
+Nota: El siguiente usuario fue creado dentro de phpMyAdmin para 
+otorgarle permisos de edición, ya que el dijo que no se debía de trabajar
+sobre un usuario 'root'
+
+manu
+contraseña: L1m0ny54l
+
+imagen de como se debe de ver: https://imgur.com/a/2RHxdGH
