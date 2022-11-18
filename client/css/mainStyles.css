@@ -1,9 +1,39 @@
 .document{
     max-width: 1400px;
-    padding: 2%;
-    margin: 2% auto;
+    padding: 15px 25px;
+    margin: 15px auto;
 }
 .btn-primary{
     background-color: #0c81ff !important;
 }
+
+/* FORM CONTAINER */
+.form-container{
+    padding: 20px;
+    max-width: 75%;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+/*
+.form-container input, textarea{
+    max-width: 65%;
+}
+*/
+
+.rounded-border{
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 800px){
+    .form-container{
+        max-width: 100%;
+    }
+}
+
+.bg-lightgrey{
+    background: #F5F5F5;
+}
+
+
 /*add scree-size meta*/

@@ -1,6 +1,6 @@
 <div class="container-fluid" style="background-color: #bde0fe;">
     <div class="container-md">    
-        <nav class="navbar navbar-expand-md">
+        <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./home.php">
                     <img src="../imgs/taskdash.png"  width="40" alt="Taskdash" />
@@ -12,7 +12,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item px-3">
-                            <a class="nav-link active" aria-current="page" href="./tasks.php">Tasks</a>
+                            <a class="nav-link" aria-current="page" href="./home.php">Home</a>
+                        </li>
+
+                        <li class="nav-item px-3">
+                            <a class="nav-link" aria-current="page" href="./tasks.php">Tasks</a>
                         </li>
 
                         <li class="nav-item px-3">
@@ -21,6 +25,10 @@
 
                         <li class="nav-item px-3">
                             <a class="nav-link" href="./myProfile.php">My Profile</a>
+                        </li>
+
+                        <li class="nav-item px-3">
+                            <a class="nav-link" aria-current="page" href="#">About</a>
                         </li>
                     </ul>
                     <!-- IF USER IN SESSION-->
