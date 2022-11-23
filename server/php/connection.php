@@ -9,7 +9,9 @@
             exit();
         }else{
             print("Éxito");
+            die();
         }
+        return $conn;
     }
     
 ?>

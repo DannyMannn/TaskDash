@@ -8,8 +8,8 @@
             <div class="modal-body">
                 <!-- RECIBIR ERRORES DEL FORMULARIO-->
                 <form action="../../server/php/forms/signup.php" method="POST" >
-                    <label class="col-6" for="name">Name:</label>
-                    <input class="form-control col-6" type="text" name="name" required>
+                    <label class="col-6" for="firstName">Name:</label>
+                    <input class="form-control col-6" type="text" name="firstName" required>
 
                     <label class="col-6" for="lastName">Last Name:</label>
                     <input class="form-control col-6" type="text" name="lastName" required>

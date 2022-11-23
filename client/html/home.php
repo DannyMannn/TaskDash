@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,6 +11,12 @@
 <body>
     <?php include("./navBar.php"); ?>
     <div class="document">
+        <?php
+            if(isset($_SESSION['firstName'])){
+                $firstName = $_SESSION['firstName'];
+                echo "<h1>Hello, $firstName!</h1><br>";
+            }
+        ?>
         <h3>Tasks Disponibles</h3>
         <br><br><br><br>
 
