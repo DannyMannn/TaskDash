@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
                 <!-- RECIBIR ERRORES DEL FORMULARIO-->
-                <form action="../../server/php/forms/signup.php" method="POST" >
+                <form action="../../../server/php/forms/signup.php" method="POST" >
                     <label class="col-6" for="firstName">Name:</label>
                     <input class="form-control col-6" type="text" name="firstName" required>
 
@@ -23,7 +23,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-primary" name="submit" value="signup">Sign up</button>
-                      </div>
+                    </div>
                 </form>
             </div>
         </div>

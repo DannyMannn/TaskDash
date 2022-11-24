@@ -1,11 +1,15 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <?php include("./headInfo.php"); ?>
+    <?php include("../components/headInfo.php"); ?>
     <title>Home</title>
 </head>
 <body>
-    <?php include("./navBar.php"); ?>
+    <?php include("../components/navBar.php"); ?>
     <div class="document">
         <?php 
             print("Página de Tasks");

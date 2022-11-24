@@ -14,11 +14,12 @@
 
         public function signup(){
             $userDb = new User;
-            $userDb->createUser($this->firstName, $this->lastName, $this->email, $this->password);
+            $userId = $userDb->createUser($this->firstName, $this->lastName, $this->email, $this->password);
 
             session_start();
             $_SESSION["firstName"] = $this->firstName;
             $_SESSION["email"] = $this->email;
+            $_SESSION["userId"] = $userId;
         }
 
 

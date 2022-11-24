@@ -1,11 +1,15 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <?php include("./headInfo.php"); ?>
+    <?php include("../components/headInfo.php"); ?>
     <title>Home</title>
 </head>
 <body>
-    <?php include("./navBar.php"); ?>
+    <?php include("../components/navBar.php"); ?>
     <div class="document">
         <div>
             <h1>Crea Tu Task</h1>
@@ -14,7 +18,7 @@
         </div>
         
         <div class="form-container rounded-border bg-lightgrey">
-            <form action="../../server/php/forms/createTask.php">
+            <form action="../../../server/php/forms/createTask.php">
                 <label class="col-6" for="payment">Pago: </label>
                 <input class="form-control col-6" type="number" name="payment" required>
 

@@ -5,16 +5,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <?php include("./headInfo.php"); ?>
+    <?php include("../components/headInfo.php"); ?>
     <title>Home</title>
 </head>
 <body>
-    <?php include("./navBar.php"); ?>
+    <?php include("../components/navBar.php"); ?>
     <div class="document">
         <?php
             if(isset($_SESSION['firstName'])){
                 $firstName = $_SESSION['firstName'];
                 echo "<h1>Hello, $firstName!</h1><br>";
+            }
+            if(isset($_SESSION['userId'])){
+                $userId = $_SESSION['userId'];
+                echo "<h1>Con ID = , $userId</h1><br>";
             }
         ?>
         <h3>Tasks Disponibles</h3>

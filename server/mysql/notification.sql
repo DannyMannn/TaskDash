@@ -1,11 +1,11 @@
-USE taskdash;
+USE TaskDash;
 CREATE TABLE `Notification`(
-   `ID_notification` varchar(100),
-    `ID_userSender` int NOT NULL,
-    `ID_userReceiver` int NOT NULL,
+   `notificationId` varchar(100),
+    `userSenderId` int NOT NULL,
+    `userReceiverId` int NOT NULL,
     `description` varchar(200),
     `dateCreated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY(`ID_notification`)
+    PRIMARY KEY(`notificationId`)
 );
 
 -- USE taskdash;
@@ -14,10 +14,10 @@ CREATE TABLE `Notification`(
 
 ALTER TABLE `Notification`
     ADD CONSTRAINT fk_userSender
-    FOREIGN KEY (ID_userSender)
-    REFERENCES usuario(ID_user);
+    FOREIGN KEY (userSenderId)
+    REFERENCES usuario(userId);
 
 ALTER TABLE `Notification`
     ADD CONSTRAINT fk_userReceiver
-    FOREIGN KEY (ID_userReceiver)
-    REFERENCES usuario(ID_user);
+    FOREIGN KEY (userReceiverId)
+    REFERENCES usuario(userId);

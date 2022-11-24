@@ -8,7 +8,7 @@
             <div class="modal-body">
             <!-- RECIBIR ERRORES DEL FORMULARIO-->
                
-                <form action="../../server/php/forms/signin.php" method="POST"  >
+                <form action="../../../server/php/forms/signin.php" method="POST"  >
 
                     <label class="col-6" for="email">Email: </label>
                     <input class="form-control col-6" type="email" name="email" placeholder="email@dominio.com" required>
