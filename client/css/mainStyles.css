@@ -35,5 +35,24 @@
     background: #F5F5F5;
 }
 
+/* FLEX CONTAINER FOR CARDS (USERS/TASKS)*/
+
+.my-card-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* This is so we don't collide with bootstraps .card class*/
+.my-card{
+    min-width: 300px;
+    max-width: 300px;
+
+    min-height: 300px;
+    max-height: 300px;
+
+    padding: 20px;
+}
 
 /*add scree-size meta*/
