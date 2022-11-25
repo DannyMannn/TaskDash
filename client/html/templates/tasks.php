@@ -35,8 +35,8 @@
             <?php echo "<a href='./task.php?ID={$row['taskId']}' class='my-a my-card rounded shadow'>"  ?>
 
                     <h2><?php print("Pago: \$".$row['payment'])  ?></h2>
-                    <h2><?php print("Descripción: ".$row['description'])  ?></h2>
-                    <h2><?php print("Creada por: ".$creator['firstName']." ".$creator['lastName'] )  ?></h2>
+                    <h4><?php print("Descripción: ".$row['description'])  ?></h4>
+                    <h5><?php print("Creada por: ".$creator['firstName']." ".$creator['lastName'] )  ?></h5>
 
             <?php echo "</a>" ?>
 

@@ -1,6 +1,6 @@
 <div class="container-fluid" style="background-color: #bde0fe;">
     <div class="container-md">    
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-md">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./home.php">
                     <img src="../../imgs/taskdash.png"  width="40" alt="Taskdash" />
@@ -29,9 +29,6 @@
                             <a class="nav-link" href="../templates/myProfile.php">My Profile</a>
                         </li>
                     <?php } ?>
-                        <li class="nav-item px-3">
-                            <a class="nav-link" aria-current="page" href="#">About</a>
-                        </li>
                     </ul>
                     <!-- IF USER IN SESSION-->
                     <div class="d-flex">

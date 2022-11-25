@@ -27,7 +27,7 @@
 
                 echo "<div class='my-card rounded shadow'>";
                 echo    "<h2>Pago: \${$task['payment']}</h2>";
-                echo    "<h2>Descripción: {$task['description']}</h2>";
+                echo    "<h2>Descripción: {$task['description']}</h4>";
                 echo    "Creada por: ".$creator['firstName']." ".$creator['lastName'];
                 echo "</div>";
 
