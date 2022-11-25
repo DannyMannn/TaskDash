@@ -38,7 +38,7 @@
             $connection = $this->connect();
 
             $stm = $connection->query($query);
-            $row = $stm->fetchAll(PDO::FETCH_NUM);
+            $row = $stm->fetchAll(PDO::FETCH_ASSOC);
 
             return $row;
         }
@@ -59,7 +59,7 @@
             $connection = $this->connect();
 
             $stm = $connection->query($query);
-            $row = $stm->fetchAll(PDO::FETCH_NUM);
+            $row = $stm->fetchAll(PDO::FETCH_ASSOC);
 
             return $row;
         }

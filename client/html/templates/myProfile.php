@@ -9,7 +9,7 @@
         $userId = $_SESSION["userId"];
         $user = $userDb->getUserById($userId)[0];
 
-        $userCreatedTasks = $userDb->getUserCreatedTasks($user[0]);
+        $userCreatedTasks = $userDb->getUserCreatedTasks($user["userId"]);
     }
 ?>
 
@@ -24,17 +24,17 @@
     <?php if(isset($_SESSION['email'])){ ?>
         <div class="document">
          
-            <h1>Name: <?php echo $user[1]?></h1>
-            <h1>Last Name: <?php echo $user[2]?></h1>
-            <h1>User ID: <?php echo $user[0]?></h1>
-            <h1>Email: <?php echo $user[3]?></h1>
+            <h1>Name: <?php echo $user["firstName"]?></h1>
+            <h1>Last Name: <?php echo $user["lastName"]?></h1>
+            <h1>User ID: <?php echo $user["userId"]?></h1>
+            <h1>Email: <?php echo $user["email"]?></h1>
             <h1>Tasks creadas por mí;</h1>
             <?php
                 echo "<div class='my-card-container'>";
                 foreach($userCreatedTasks as $row) {
                     echo "<div class='my-card rounded shadow'>";
-                    echo    "<h2>Pago: \$$row[1]</h2>";
-                    echo    "<h2>Descripción: $row[3]</h2>";
+                    echo    "<h2>Pago: \${$row['payment']}</h2>";
+                    echo    "<h2>Descripción: {$row['description']}</h2>";
                     echo    "<button class='btn btn-primary'>Ver mas</button>";
                     echo "</div>";
 

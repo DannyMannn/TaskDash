@@ -19,16 +19,16 @@
     <div class="document">
         <?php
             if(isset($_GET['ID']) and isset($_SESSION['userId'])){
-                $userId = $_SESSION['userId'];
-
-                $creator = $userDb->getUserById($userId)[0]; // FIRST USER OF ARRAY LENGTH 1
                 $taskId = $_GET['ID'];
                 $task = $taskDb->getTaskById($taskId)[0];
+                $userId = $_SESSION['userId'];
+                $creator = $userDb->getUserById($userId)[0]; // FIRST USER OF ARRAY LENGTH 1
+
 
                 echo "<div class='my-card rounded shadow'>";
-                echo    "<h2>Pago: \$$task[1]</h2>";
-                echo    "<h2>Descripción: $task[3]</h2>";
-                echo    "Creada por: ".$creator[1]." ".$creator[2];
+                echo    "<h2>Pago: \${$task['payment']}</h2>";
+                echo    "<h2>Descripción: {$task['description']}</h2>";
+                echo    "Creada por: ".$creator['firstName']." ".$creator['lastName'];
                 echo "</div>";
 
             }
@@ -37,7 +37,7 @@
 
 
         <?php
-            if($userId == $task[4]){//userId == task.userIdCreator? (si este usuario es el creador del Task)
+            if($userId == $task['userIdCreator']){//userId == task.userIdCreator? (si este usuario es el creador del Task)
 
         ?>
             <form action='../../../server/php/forms/deleteTask.php' method='GET'>

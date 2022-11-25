@@ -30,13 +30,13 @@
         <div class="my-card-container">
             <?php
                 foreach($tasks as $row) {
-                    $creator = $userDb->getUserById($row[4])[0]; // FIRST USER OF ARRAY LENGTH 1
+                    $creator = $userDb->getUserById($row["userIdCreator"])[0]; // FIRST USER OF ARRAY LENGTH 1
             ?>
-            <?php echo "<a href='./task.php?ID={$row[0]}' class='my-a my-card rounded shadow'>"  ?>
+            <?php echo "<a href='./task.php?ID={$row['taskId']}' class='my-a my-card rounded shadow'>"  ?>
 
-                    <h2><?php print("Pago: \$".$row[1])  ?></h2>
-                    <h2><?php print("Descripción: ".$row[3])  ?></h2>
-                    <h2><?php print("Creada por: ".$creator[1]." ".$creator[2] )  ?></h2>
+                    <h2><?php print("Pago: \$".$row['payment'])  ?></h2>
+                    <h2><?php print("Descripción: ".$row['description'])  ?></h2>
+                    <h2><?php print("Creada por: ".$creator['firstName']." ".$creator['lastName'] )  ?></h2>
 
             <?php echo "</a>" ?>
 
