@@ -3,12 +3,12 @@
     class User extends DataBaseConnection{
         
         public function getAllUsers(){
-            $query = "SELECT * FROM Usuario";
+            $query = "SELECT * FROM `Usuario`";
             $connection = $this->connect();
 
             $stm = $connection->query($query);
 
-            return $stm->fetchAll(PDO::FETCH_NUM);
+            return $stm->fetchAll(PDO::FETCH_ASSOC);
 
         }
 
