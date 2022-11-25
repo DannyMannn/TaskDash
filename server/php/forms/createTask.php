@@ -15,23 +15,6 @@
 
         // redirect (en el futuro redireccionar a página del Task)
         header("location: ../../../client/html/templates/task.php?ID={$taskId}");
-        /*
-        if(isset($_SESSION["userId"])){
-            // datos mandados por el post
-            $payment = $_REQUEST['payment'];
-            $description = $_REQUEST['description'];
-            $userId = $_SESSION["userId"];
-            
-            $taskDb = new Task;
-            $taskDb->createTask($payment, $description, $userId);
-
-            // redirect (en el futuro redireccionar a página del Task)
-            header("location: ../../../client/html/templates/tasks.php");
-        }
-        else{
-            //header("location: ../../../client/html/templates/home.php");
-        }
-        */
     }
 
 ?>

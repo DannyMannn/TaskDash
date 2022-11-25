@@ -43,7 +43,13 @@
         }
         
         public function getTaskCandidates($taskId){
+            $query = "SELECT * FROM `Candidate` WHERE taskId=$taskId;";
+            $connection = $this->connect();
 
+            $stm = $connection->query($query);
+            $row = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+            return $row;
         }
     }
 ?>
