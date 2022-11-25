@@ -25,17 +25,20 @@
             <button class="btn btn-primary my-4">Create Task</button>
         </a>
         
+        <h1>Selecciona Un Task!</h1>
+
         <div class="my-card-container">
             <?php
                 foreach($tasks as $row) {
                     $creator = $userDb->getUserById($row[4])[0]; // FIRST USER OF ARRAY LENGTH 1
             ?>
-                <div class="my-card rounded shadow">
+            <?php echo "<a href='./task.php?ID={$row[0]}' class='my-a my-card rounded shadow'>"  ?>
+
                     <h2><?php print("Pago: \$".$row[1])  ?></h2>
                     <h2><?php print("Descripción: ".$row[3])  ?></h2>
                     <h2><?php print("Creada por: ".$creator[1]." ".$creator[2] )  ?></h2>
-                    <button class="btn btn-primary">Aplicar! (Ver mas...)</button>
-                </div>
+
+            <?php echo "</a>" ?>
 
             <?php
                 }

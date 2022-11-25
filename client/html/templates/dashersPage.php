@@ -21,6 +21,7 @@
     <?php include("../components/navBar.php"); ?>
     <?php if(isset($_SESSION['email'])){ ?>
     <div class="document">   
+        <h1 class="my-3">¡Todos Nuestros Dashers!</h1>
         <div class="my-card-container">
             
             <?php
@@ -34,9 +35,11 @@
                     <h4>Tasks Given: <?php print($stats["tasksGiven"])  ?></h4>
                 </div>
 
-            
+                <?php }?>
         </div>
+
     </div>
+
     <?php }else{ ?>
         <div class="document"> 
             <div class="alert alert-warning alert-dismissible fade show" role="alert">

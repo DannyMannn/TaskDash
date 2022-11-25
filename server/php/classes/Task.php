@@ -32,6 +32,16 @@
             return $row;
         }
 
+        public function deleteTaskById($taskId){
+            $query = "DELETE FROM `Task` WHERE taskId=$taskId;";
+            $connection = $this->connect();
+
+            $stm = $connection->query($query);
+            $row = $stm->fetchAll(PDO::FETCH_NUM);
+
+            return $row;
+        }
+        
         public function getTaskCandidates($taskId){
 
         }

@@ -53,6 +53,19 @@
     max-height: 300px;
 
     padding: 20px;
+    margin: 15px;
+    overflow: scroll;
+}
+
+.my-a{
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
+}
+
+.my-a:hover{
+    color: black;
+    background: lightgray;
 }
 
 /*add scree-size meta*/

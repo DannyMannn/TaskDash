@@ -54,6 +54,25 @@
             return $row;
         }
 
+        public function getUserCreatedTasks($userIdCreator){
+            $query = "SELECT * FROM `Task` WHERE userIdCreator=$userIdCreator;";
+            $connection = $this->connect();
+
+            $stm = $connection->query($query);
+            $row = $stm->fetchAll(PDO::FETCH_NUM);
+
+            return $row;
+        }
+
+        // la lógica es como sigue: si está en modo de active=false significa que
+        // ya ha concluido y todos que aún sean candidatos del Task son los que
+        // completaron el task. Esto último es porque al elegir un candidato para
+        // el task, los demás se borran.
+        public function getUserCompletedTasks($userId){
+
+        }
+
+
         private function createUserInfoAndStats($userId, $connection){
             $queryInfo = "INSERT INTO PersonalInfo (description, phoneNumber, city, userId) VALUES('New on the site!','123','',$userId);";
             $queryStats = "INSERT INTO Stats (reputation, tasksCompleted, tasksGiven, userId) VALUES(0, 0, 0, $userId);";
