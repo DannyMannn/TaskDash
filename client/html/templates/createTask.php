@@ -18,14 +18,14 @@
         </div>
         
         <div class="form-container rounded-border bg-lightgrey">
-            <form action="../../../server/php/forms/createTask.php">
+            <form action="../../../server/php/forms/createTask.php" method="POST">
                 <label class="col-6" for="payment">Pago: </label>
                 <input class="form-control col-6" type="number" name="payment" required>
 
-                <label class="col-6" for="password">Descripción: </label>
-                <textarea class="form-control" type="text" name="password" required></textarea>
+                <label class="col-6" for="description">Descripción: </label>
+                <textarea class="form-control" type="text" name="description" required></textarea>
 
-                <button type="submit" class="btn btn-primary my-3">Create Task!</button>
+                <button type="submit" class="btn btn-primary my-3" name="submit">Create Task!</button>
             </form>
         </div>
     </div>

@@ -12,6 +12,7 @@
 
         }
 
+        // returns ID of newly created user
         public function createUser($firstName, $lastName, $email, $password){
             $query = "INSERT INTO Usuario (firstName, lastName, email, uPassword) VALUES('$firstName', '$lastName', '$email', '$password');";
             $connection = $this->connect();
@@ -19,12 +20,11 @@
             $connection->exec($query);
             $last_id = $connection->lastInsertId();
             $this->createUserInfoAndStats($last_id, $connection);
-            //echo "New record created successfully. Last inserted ID is: " . $last_id;
             return $last_id;
         }
 
         public function getUser($email, $password){
-            $query = "SELECT email, uPassword FROM Usuario where email = '$email' AND uPassword = '$password';";
+            $query = "SELECT * FROM `Usuario` WHERE email='$email' AND uPassword='$password';";
             $connection = $this->connect();
 
             $stmt = $connection->query($query);
@@ -33,8 +33,25 @@
             
         }
 
-        public function getUserById(){
+        public function getUserById($userId){
+            $query = "SELECT * FROM `Usuario` WHERE userId=$userId;";
+            $connection = $this->connect();
 
+            $stm = $connection->query($query);
+            $row = $stm->fetchAll(PDO::FETCH_NUM);
+
+            return $row;
+        }
+
+        public function getUserStats($userId){
+            //$query = "SELECT userId FROM Stats where userId = $userId;";
+            $query = "SELECT * FROM `Stats` WHERE userId=$userId;";
+            $connection = $this->connect();
+
+            $stm = $connection->query($query);
+            $row = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+            return $row;
         }
 
         private function createUserInfoAndStats($userId, $connection){
