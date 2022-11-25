@@ -34,7 +34,7 @@
                     <!-- IF USER IN SESSION-->
                     <div class="d-flex">
                         <?php
-                            if(!isset($_SESSION['firstName']))
+                            if(!isset($_SESSION['email']))
                             {
                         ?>
                             <!-- Modal SIGNIN Button-->

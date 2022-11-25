@@ -27,10 +27,10 @@
             $query = "SELECT email, uPassword FROM Usuario where email = '$email' AND uPassword = '$password';";
             $connection = $this->connect();
 
-            $stm = $connection->query($query);
-            $row = $stm->fetchAll(PDO::FETCH_NUM);
-
-            return $row;
+            $stmt = $connection->query($query);
+            
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
         }
 
         public function getUserById(){
