@@ -10,7 +10,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <?php if(isset($_SESSION['email'])){ ?>
                         <li class="nav-item px-3">
                             <a class="nav-link" aria-current="page" href="../templates/home.php">Home</a>
                         </li>
@@ -26,7 +28,7 @@
                         <li class="nav-item px-3">
                             <a class="nav-link" href="../templates/myProfile.php">My Profile</a>
                         </li>
-
+                    <?php } ?>
                         <li class="nav-item px-3">
                             <a class="nav-link" aria-current="page" href="#">About</a>
                         </li>

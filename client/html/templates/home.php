@@ -12,15 +12,14 @@
     <?php include("../components/navBar.php"); ?>
     <div class="document">
         <?php
-            if(isset($_SESSION['email'])){
-                $firstName = $_SESSION['firstName'];
-                echo "<h1>Hello, $firstName!</h1><br>";
-            }
-            if(isset($_SESSION['email'])){
-                $userId = $_SESSION['userId'];
-                echo "<h1>Con ID = , $userId</h1><br>";
-            }
-        ?>
+            if(isset($_SESSION['email'])){ ?>
+                <div class="d-flex justify-content-center">
+                    <?php 
+                    $firstName = $_SESSION['firstName'];
+                    echo "<h1>¡Hola! $firstName</h1><br>"; ?>
+                </div>
+            <?php } ?>
+        
         <h3>Tasks Disponibles</h3>
         <br><br><br><br>
 
