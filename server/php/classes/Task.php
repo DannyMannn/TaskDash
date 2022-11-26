@@ -22,6 +22,15 @@
             return $last_id;
         }
 
+        public function deactivateTask($taskId){
+            $query = "UPDATE `Task` SET active=0 WHERE taskId='$taskId';";
+            $connection = $this->connect();
+
+            $stmt = $connection->query($query);
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
         public function getTaskById($taskId){
             $query = "SELECT * FROM `Task` WHERE taskId=$taskId;";
             $connection = $this->connect();

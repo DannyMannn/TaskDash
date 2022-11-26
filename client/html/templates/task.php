@@ -96,16 +96,30 @@
                     <h2><?php print("Tasks Given: ".$stats['tasksGiven'])  ?></h2>
                     
                     <?php
-                        if($userId == $task['userIdCreator']){//userId == task.userIdCreator? (si este usuario es el creador del Task)
+                        if($userId == $task['userIdCreator'] and $task['active'] == 1){//userId == task.userIdCreator? (si este usuario es el creador del Task)
+                            $taskId = $row['taskId'];
+                            $candidateId = $row['candidateId'];
+                            $taskCreatorId = $creator['userId'];
+                            $userCandidateId = $user['userId'];
 
                     ?>
                         <form action='../../../server/php/forms/selectCandidate.php' method='GET'>
                             <button class="btn btn-primary" type="submit" name="submit">Elegir</button>
-                            <input type="hidden" name="taskId" value="<?php echo $row['candidateId']; ?>" />
+                            <input type="hidden" name="taskId" value="<?php echo $taskId; ?>" />
+                            <input type="hidden" name="candidateId" value="<?php echo $candidateId; ?>" />
+                            <input type="hidden" name="taskCreatorId" value="<?php echo $taskCreatorId; ?>" />
+                            <input type="hidden" name="userCandidateId" value="<?php echo $userCandidateId; ?>" />
                         </form>
 
                     <?php
                         }
+                        else if($task['active'] == 0){
+
+                    ?> 
+                            <button class="btn btn-primary" type="submit" name="submit">YA ELEGIDO!</button>
+                    <?php
+                        }
+                    
                     ?>
             <?php echo "</div>" ?>
             <?php

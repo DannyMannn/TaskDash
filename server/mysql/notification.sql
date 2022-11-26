@@ -1,6 +1,6 @@
 USE TaskDash;
 CREATE TABLE `Notification`(
-   `notificationId` varchar(100),
+   `notificationId` INT NOT NULL AUTO_INCREMENT,
     `userSenderId` int NOT NULL,
     `userReceiverId` int NOT NULL,
     `description` varchar(200),
