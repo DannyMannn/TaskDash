@@ -33,9 +33,11 @@
                         <h1><strong>Email:</strong> <?php echo $user["email"];?></h1><br>
                     </div>
                     <!-- <form action="../../../server/php/forms/updateUser.php" method="POST"> -->
+                    <div class="float-end mx-5 mt-5">
                         <a href="./updateMyProfile.php">
-                            <button type="button" class="btn btn-primary mx-2" name="updateMyProfile" value="update">Actualizar</button>
+                            <button type="button" class="btn btn-primary mx-2 btn-lg" name="updateMyProfile" value="update">Actualizar</button>
                         </a>
+                    </div>
                     <!-- </form> -->
                 </div>
                 <h1><strong>Tasks creadas por mí</strong></h1><br>

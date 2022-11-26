@@ -20,7 +20,7 @@
             session_start();
             $_SESSION["firstName"] = $this->firstName;
             $_SESSION["email"] = $this->email;
-            $_SESSION["userId"] = $userId;
+            $_SESSION["userId"] = $this->userId;
         }
     }
 ?>
