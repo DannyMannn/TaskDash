@@ -22,7 +22,8 @@
             $_SESSION["firstName"] = $row[0]['firstName'];
             $_SESSION["email"] = $row[0]['email'];
             $_SESSION["userId"] = $row[0]['userId'];
-            
+
+            header("location: ../../../client/html/templates/home.php?error=none");
         }
 
     }
