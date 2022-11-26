@@ -30,7 +30,7 @@
                         </li>
 
                         <li class="nav-item px-3">
-                            <a class="nav-link" href="../templates/myProfile.php">Notifications</a>
+                            <a class="nav-link" href="../templates/notifications.php">Notifications</a>
                         </li>
                     <?php } ?>
                     </ul>

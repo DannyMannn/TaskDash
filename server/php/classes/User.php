@@ -47,9 +47,9 @@
             $connection = $this->connect();
 
             $stmt = $connection->query($query);
-            
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-            
+            $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            return $row;
         }
 
         public function getUserById($userId){

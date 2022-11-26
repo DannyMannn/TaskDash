@@ -5,7 +5,7 @@ let flag = true; //button clicked and not collapsed
 burguerBtn.addEventListener("click",()=>{
     if(flag){
         img_pfp.style.transition = "ease 0.3s";
-        img_pfp.style.top="317px";
+        img_pfp.style.top="350px";
         console.log(flag);
         flag=false;
     }else{
