@@ -11,6 +11,25 @@
             return $last_id;
         }
 
+        public function getCandidateByUserId($userId){
+            $query = "SELECT * FROM `Candidate` WHERE userId='$userId';";
+            $connection = $this->connect();
+
+            $stm = $connection->query($query);
+            $row = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+            return $row;
+        }
+
+        public function deleteCandidateByUserId($userId){
+            $query = "DELETE FROM `Candidate` WHERE userId=$userId;";
+            $connection = $this->connect();
+
+            $stm = $connection->query($query);
+            $row = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+            return $row;
+        }
     
     }
 ?>

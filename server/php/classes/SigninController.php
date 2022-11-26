@@ -16,6 +16,7 @@
             if(sizeof($row) == 0){
                 // redirect
                header("location: ../../../client/html/templates/home.php?error=invalidCredentials");
+               return;
            }
 
             session_start();

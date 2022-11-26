@@ -1,6 +1,6 @@
 <div class="container-fluid" style="background-color: #bde0fe;">
     <div class="container-md">    
-        <nav class="navbar navbar-expand-md">
+        <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./home.php">
                     <img src="../../imgs/taskdash.png"  width="40" alt="Taskdash" />
@@ -27,6 +27,10 @@
 
                         <li class="nav-item px-3">
                             <a class="nav-link" href="../templates/myProfile.php">My Profile</a>
+                        </li>
+
+                        <li class="nav-item px-3">
+                            <a class="nav-link" href="../templates/myProfile.php">Notifications</a>
                         </li>
                     <?php } ?>
                     </ul>

@@ -41,17 +41,28 @@
                     <!-- </form> -->
                 </div>
                 <h1><strong>Tasks creadas por mí</strong></h1><br>
-                        <?php
-                            echo "<div class='my-card-container'>";
-                                foreach($userCreatedTasks as $row) {
-                                    echo "<div class='my-card rounded shadow'>";
-                                    echo    "<h2>Pago: \${$row['payment']}</h2>";
-                                    echo    "<h2>Descripción: {$row['description']}</h2>";
-                                    echo    "<button class='btn btn-primary'>Ver mas</button>";
-                                    echo "</div>";
-                                }         
-                            echo "</div>";
-                        ?>
+
+
+
+
+                <div class="my-card-container">
+                    <?php
+                        foreach($userCreatedTasks as $row) {
+                            $creator = $userDb->getUserById($row["userIdCreator"])[0]; // FIRST USER OF ARRAY LENGTH 1
+                    ?>
+                    <?php echo "<a href='./task.php?ID={$row['taskId']}' class='my-a my-card rounded shadow'>"  ?>
+
+                            <h2><?php print("Pago: \$".$row['payment'])  ?></h2>
+                            <h4><?php print("Descripción: ".$row['description'])  ?></h4>
+                            <h5><?php print("Creada por: ".$creator['firstName']." ".$creator['lastName'] )  ?></h5>
+
+                    <?php echo "</a>" ?>
+
+                    <?php
+                        }
+                    ?>
+                </div>
+                
             </div> 
         </div>
         

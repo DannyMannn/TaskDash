@@ -2,10 +2,12 @@
     include("../../../server/php/classes/DataBaseConnection.php");
     include("../../../server/php/classes/Task.php");
     include("../../../server/php/classes/User.php");
+    include("../../../server/php/classes/Candidate.php");
 
     session_start();
     $taskDb = new Task;
     $userDb = new User;
+    $candidateDb = new Candidate;
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +35,7 @@
             }
         ?>
         <?php
-            if($userId == $task['userIdCreator']){//userId == task.userIdCreator? (si este usuario es el creador del Task)
+            if($userId == $task['userIdCreator'] and $task['active'] == 1){//userId == task.userIdCreator? (si este usuario es el creador del Task)
 
         ?>
             <form action='../../../server/php/forms/deleteTask.php' method='GET'>
@@ -45,12 +47,35 @@
             }
             else{
         ?>
+            <?php
+                if(sizeof($candidateDb->getCandidateByUserId($userId)) == 0 and $task['active'] == 1){
+            ?>
+
             <form action="../../../server/php/forms/applyTask.php">
                 <input type="hidden" name="taskId" value="<?php echo $taskId; ?>" />
                 <input type="hidden" name="userId" value="<?php echo $userId; ?>" />
                 <button class="btn btn-primary" type="submit" name="submit">¡Aplicar!</button>
             </form>
+
+
+            <?php
+                }
+                else if(sizeof($candidateDb->getCandidateByUserId($userId)) > 0 and $task['active'] == 1){
+            ?>
+
+                <form action="../../../server/php/forms/unapplyTask.php">
+                    <input type="hidden" name="taskId" value="<?php echo $taskId; ?>" />
+                    <input type="hidden" name="userId" value="<?php echo $userId; ?>" />
+                    <button class="btn btn-warning" type="submit" name="submit">¡Borrar Aplicación!</button>
+                </form>
+
         <?php
+                }
+                else if($task['active'] == 0){
+        ?>  
+                <button class="btn btn-secondary">¡Task Terminada!</button>
+        <?php
+                }
             }
         ?>
 
@@ -61,11 +86,15 @@
                 $candidatos = $taskDb->getTaskCandidates($taskId);
                 foreach($candidatos as $row) {
                     $user = $userDb->getUserById($row["userId"])[0]; // FIRST USER OF ARRAY LENGTH 1
+                    $stats = $userDb->getUserStats($row["userId"])[0]; // FIRST USER OF ARRAY LENGTH 1
             ?>
             <?php echo "<div class='my-a my-card rounded shadow'>"  ?>
 
                     <h2><?php print("Nombre: ".$user['firstName']." ".$user['lastName'])  ?></h2>
-
+                    <h2><?php print("Reputation: ".$stats['reputation'])  ?></h2>
+                    <h2><?php print("Tasks Completed: ".$stats['tasksCompleted'])  ?></h2>
+                    <h2><?php print("Tasks Given: ".$stats['tasksGiven'])  ?></h2>
+                    
                     <?php
                         if($userId == $task['userIdCreator']){//userId == task.userIdCreator? (si este usuario es el creador del Task)
 

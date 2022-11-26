@@ -63,8 +63,17 @@
         }
 
         public function getUserStats($userId){
-            //$query = "SELECT userId FROM Stats where userId = $userId;";
             $query = "SELECT * FROM `Stats` WHERE userId=$userId;";
+            $connection = $this->connect();
+
+            $stm = $connection->query($query);
+            $row = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+            return $row;
+        }
+        
+        public function getUserPersonalInfo($userId){
+            $query = "SELECT * FROM `PersonalInfo` WHERE userId=$userId;";
             $connection = $this->connect();
 
             $stm = $connection->query($query);
