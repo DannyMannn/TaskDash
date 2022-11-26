@@ -30,12 +30,8 @@
                 echo    "<h2>Descripción: {$task['description']}</h4>";
                 echo    "Creada por: ".$creator['firstName']." ".$creator['lastName'];
                 echo "</div>";
-
             }
-
         ?>
-
-
         <?php
             if($userId == $task['userIdCreator']){//userId == task.userIdCreator? (si este usuario es el creador del Task)
 
@@ -48,7 +44,6 @@
         <?php
             }
             else{
-
         ?>
             <form action="../../../server/php/forms/applyTask.php">
                 <input type="hidden" name="taskId" value="<?php echo $taskId; ?>" />
@@ -58,7 +53,6 @@
         <?php
             }
         ?>
-
 
         <h1>Candidatos: </h1>
 
@@ -84,19 +78,7 @@
                     <?php
                         }
                     ?>
-
-
-
-
             <?php echo "</div>" ?>
-                    
-
-
-                    
-                  
-
-
-
             <?php
                 }
             ?>

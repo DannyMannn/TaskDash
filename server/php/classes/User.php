@@ -23,6 +23,15 @@
             return $last_id;
         }
 
+        public function updateUser($userId,$firstName, $lastName, $email, $password){
+            $query = "UPDATE `Usuario` SET firstName = '$firstName', lastName= '$lastName', email='$email', uPassword='$password' WHERE userId='$userId';";
+            $connection = $this->connect();
+
+            $stmt = $connection->query($query);
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
         public function getUser($email, $password){
             $query = "SELECT * FROM `Usuario` WHERE email='$email' AND uPassword='$password';";
             $connection = $this->connect();
@@ -34,7 +43,7 @@
         }
 
         public function getUserById($userId){
-            $query = "SELECT * FROM `Usuario` WHERE userId=$userId;";
+            $query = "SELECT * FROM `Usuario` WHERE userId='$userId';";
             $connection = $this->connect();
 
             $stm = $connection->query($query);

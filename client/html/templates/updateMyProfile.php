@@ -8,7 +8,6 @@
     if(isset($_SESSION["userId"])){
         $userId = $_SESSION["userId"];
         $user = $userDb->getUserById($userId)[0];
-        $userCreatedTasks = $userDb->getUserCreatedTasks($user["userId"]);
     }
 ?>
 
@@ -28,28 +27,27 @@
                         <img src="../../imgs/pfp.png" alt="pfpPic" id="pfp" class="img-user">
                     </div>
                     <div class="info-user">
-                        <h1><strong>Nombre:</strong> <?php echo $user["firstName"];?></h1><br>
-                        <h1><strong>Apellido(s):</strong> <?php echo $user["lastName"];?></h1><br>
-                        <h1><strong>Email:</strong> <?php echo $user["email"];?></h1><br>
-                    </div>
-                    <!-- <form action="../../../server/php/forms/updateUser.php" method="POST"> -->
-                        <a href="./updateMyProfile.php">
-                            <button type="button" class="btn btn-primary mx-2" name="updateMyProfile" value="update">Actualizar</button>
-                        </a>
-                    <!-- </form> -->
+                        <form action="../../../server/php/forms/updateUser.php" method="POST">
+                            <input type="hidden" name="userId" value="<?php echo $user['userId'] ?>">
+                            <input class="form-control col-6" type="text" name="firstName" 
+                                placeholder="Nombre" value="<?php echo $user['firstName']?>">
+                            <br><br>
+                            <input class="form-control col-6" type="text" name="lastName" 
+                                placeholder="Apellido(s)" value="<?php echo $user['lastName']?>" >
+
+                            <br><br>
+                            <input class="form-control col-6" type="email" name="email" 
+                            placeholder="Email" value="<?php echo $user['email']?>" >
+
+                            <br><br>
+                            <input class="form-control col-6" type="password" name="password" 
+                            placeholder="Password" value="<?php echo $user['uPassword'] ?>">
+                            <br><br>
+                            
+                            <button type="submit" class="btn btn-primary mx-2" name="submit" value="update">Actualizar</button>
+
+                        </form>
                 </div>
-                <h1><strong>Tasks creadas por mí</strong></h1><br>
-                        <?php
-                            echo "<div class='my-card-container'>";
-                                foreach($userCreatedTasks as $row) {
-                                    echo "<div class='my-card rounded shadow'>";
-                                    echo    "<h2>Pago: \${$row['payment']}</h2>";
-                                    echo    "<h2>Descripción: {$row['description']}</h2>";
-                                    echo    "<button class='btn btn-primary'>Ver mas</button>";
-                                    echo "</div>";
-                                }         
-                            echo "</div>";
-                        ?>
             </div> 
         </div>
         

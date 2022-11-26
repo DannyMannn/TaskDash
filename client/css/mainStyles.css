@@ -68,3 +68,38 @@
     background: lightgray;
 }
 
+/*user info*/
+.user-box{
+    -webkit-box-shadow: 0 0 5px 2px #bfc0c0;
+    -moz-box-shadow: 0 0 5px 2px #bfc0c0;
+    box-shadow: 0 0 5px 2px #bfc0c0;
+    width: 75%;
+    height: 530px;
+    margin: 5em auto 3em;
+    box-sizing: border-box;
+}
+.info-user{
+    padding: 0 30px;
+    text-align: center;
+}
+
+.img-user{
+    border-radius: 50%;
+    border: 5px solid #495057;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 105px;
+}
+.pic{
+    width: 120px;
+    height: 120px;
+    margin: 0px auto;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 1000px){
+    .user-box{
+        width: 100%;
+    }
+}
