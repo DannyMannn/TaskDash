@@ -42,6 +42,61 @@
                     </h4></p>
                 </div>
             <?php } ?>
+
+            <?php
+                if(isset($_GET['error'])){
+                    if($_GET['error'] == 'invalidCredentials'){
+            ?>
+                <script>
+                    var ready = (callback) => {
+                        if (document.readyState != "loading") callback();
+                        else document.addEventListener("DOMContentLoaded", callback);
+                    }
+                    
+                    ready(() => { 
+                        var myModal = new bootstrap.Modal(document.getElementById('staticBackdropSignin'));
+                        myModal.show();
+
+                        var modalBody = document.getElementById('modal-body-signin');
+
+                        const errorMessage = document.createElement("p");
+                        errorMessage.classList.add("text-danger");
+                        errorMessage.innerHTML = "Error en las credenciales. Por favor checa tus datos.";
+
+                        modalBody.prepend(errorMessage);
+                    });
+                </script>
+
+            <?php
+                    }
+                    if($_GET['error'] == 'emailAlreadyExists'){
+                        
+            ?>
+                <script>
+                    var ready = (callback) => {
+                        if (document.readyState != "loading") callback();
+                        else document.addEventListener("DOMContentLoaded", callback);
+                    }
+                    
+                    ready(() => { 
+                        var myModal = new bootstrap.Modal(document.getElementById('staticBackdropSignup'));
+                        myModal.show();
+
+                        var modalBody = document.getElementById('modal-body-signup');
+
+                        const errorMessage = document.createElement("p");
+                        errorMessage.classList.add("text-danger");
+                        errorMessage.innerHTML = "Error en las credenciales. El usuario con ese email ya existe.";
+
+                        modalBody.prepend(errorMessage);
+                    });
+                </script>
+            <?php
+                    }
+                }
+            ?>
+                
+            
         
     </div>
      

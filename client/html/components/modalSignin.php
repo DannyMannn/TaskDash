@@ -5,7 +5,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">Task Dash Signin</h5>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="modal-body-signin">
             <!-- RECIBIR ERRORES DEL FORMULARIO-->
                
                 <form action="../../../server/php/forms/signin.php" method="POST"  >

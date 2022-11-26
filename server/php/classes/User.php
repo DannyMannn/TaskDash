@@ -42,6 +42,16 @@
             
         }
 
+        public function getUserByEmail($email){
+            $query = "SELECT * FROM `Usuario` WHERE email='$email';";
+            $connection = $this->connect();
+
+            $stmt = $connection->query($query);
+            
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
+        }
+
         public function getUserById($userId){
             $query = "SELECT * FROM `Usuario` WHERE userId='$userId';";
             $connection = $this->connect();

@@ -16,6 +16,6 @@
         $signupController->signup();
 
         // redirect
-        header("location: ../../../client/html/templates/home.php?error=none");
+        //header("location: ../../../client/html/templates/home.php?error=none");
     }
 ?>

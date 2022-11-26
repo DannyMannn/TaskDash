@@ -5,7 +5,7 @@
             <div class="modal-header">
               <h5 class="modal-title" id="staticBackdropLabel">Task Dash Signup</h5>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="modal-body-signup">
                 <!-- RECIBIR ERRORES DEL FORMULARIO-->
                 <form action="../../../server/php/forms/signup.php" method="POST" >
                     <label class="col-6" for="firstName">Name:</label>
