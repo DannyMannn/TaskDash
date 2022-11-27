@@ -2,6 +2,7 @@
 
     include("../classes/DataBaseConnection.php");
     include("../classes/Task.php");
+    include("../classes/User.php");
     include("../classes/TaskApplicationController.php");
 
     if(isset($_REQUEST["submit"]) and isset($_REQUEST["taskId"])){

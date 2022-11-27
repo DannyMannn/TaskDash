@@ -97,15 +97,71 @@
         // completaron el task. Esto último es porque al elegir un candidato para
         // el task, los demás se borran.
         public function getUserCompletedTasks($userId){
-
+        
         }
 
+        public function incrementTasksCompleted($userId){
+            $tasksCompleted = $this->getUserStats($userId)[0]['tasksCompleted'];
+            $tasksCompleted ++;
+
+            $query = "UPDATE `Stats` SET tasksCompleted = $tasksCompleted WHERE userId='$userId';";
+            $connection = $this->connect();
+
+            $stmt = $connection->query($query);
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        public function incrementTasksGiven($userId){
+            $tasksGiven = $this->getUserStats($userId)[0]['tasksGiven'];
+            $tasksGiven ++;
+
+            $query = "UPDATE `Stats` SET tasksGiven = $tasksGiven WHERE userId='$userId';";
+            $connection = $this->connect();
+
+            $stmt = $connection->query($query);
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        public function createReview($raterId, $taskCreatorId, $rating, $comment){
+            $query = "INSERT INTO Review (comment, rating, userId, raterId) VALUES('$comment', $rating, $taskCreatorId, $raterId);";
+            $connection = $this->connect();
+            $connection->exec($query);
+
+            $this->updateUserReputation($taskCreatorId, $rating);
+            $last_id = $connection->lastInsertId();
+
+            return $last_id;
+        }
+
+        private function updateUserReputation($userId, $rating){
+            $reputation= $this->getUserStats($userId)[0]['reputation'];
+            $reputation = $reputation + ($rating - 3);
+
+            $query = "UPDATE `Stats` SET reputation = $reputation WHERE userId='$userId';";
+            $connection = $this->connect();
+
+            $stmt = $connection->query($query);
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        public function getAllReviews($userId){
+            $query = "SELECT * FROM `Review` WHERE userId=$userId";
+            $connection = $this->connect();
+
+            $stm = $connection->query($query);
+
+            return $stm->fetchAll(PDO::FETCH_ASSOC);
+        }
 
         private function createUserInfoAndStats($userId, $connection){
-            $queryInfo = "INSERT INTO PersonalInfo (description, phoneNumber, city, userId) VALUES('New on the site!','123','',$userId);";
+            $queryInfo = "INSERT INTO PersonalInfo (description, phoneNumber, city, userId) VALUES('New on the site!','1234567890','',$userId);";
             $queryStats = "INSERT INTO Stats (reputation, tasksCompleted, tasksGiven, userId) VALUES(0, 0, 0, $userId);";
             $connection->exec($queryInfo);
             $connection->exec($queryStats);
         }
+
     }
 ?>

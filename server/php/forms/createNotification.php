@@ -3,10 +3,7 @@
     include("../classes/Notification.php");
     include("../classes/User.php");
 
-    // para que no se pueda entrar directamente a createNotif.php
-    // lo siguiente solo se puede ejecutar si el usuario ha iniciado sesión
     if(isset($_REQUEST["submit"])){
-        session_start();
         $emailReceiver = $_REQUEST['emailReceiver'];
         $description = $_REQUEST['description'];
         $userId = $_SESSION["userId"];

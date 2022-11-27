@@ -7,7 +7,6 @@
     $userDb = new User;
     $users = $userDb->getAllUsers();
     
-    
 ?>
 
 
@@ -22,24 +21,30 @@
     <?php if(isset($_SESSION['email'])){ ?>
     <div class="document">   
         <h1 class="my-3">¡Todos Nuestros Dashers!</h1>
+       
+
+
         <div class="my-card-container">
-            
             <?php
                 foreach($users as $row) {
                     $stats = $userDb->getUserStats($row["userId"])[0]; // FIRST USER OF ARRAY LENGTH 1
                     $personalInfo = $userDb->getUserPersonalInfo($row["userId"])[0];
             ?>
-                <div class="my-card rounded shadow">
+            <?php echo "<a href='./dasherPage.php?ID={$row['userId']}' class='my-a my-card rounded shadow'>"  ?>
+
                     <h2><?php print("Nombre: ".$row["firstName"]." ".$row["lastName"])  ?></h2>
                     <h4>Reputation: <?php print($stats["reputation"])  ?></h4>
                     <h4>Tasks Completed: <?php print($stats["tasksCompleted"])  ?></h4>
                     <h4>Tasks Given: <?php print($stats["tasksGiven"])  ?></h4>
                     <h4>Description: <?php print($personalInfo["description"])  ?></h4>
-                
-                </div>
 
-                <?php }?>
+            <?php echo "</a>" ?>
+
+            <?php
+                }
+            ?>
         </div>
+    </div>
 
     </div>
 
