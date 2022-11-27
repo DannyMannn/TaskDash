@@ -60,5 +60,15 @@
 
             return $row;
         }
+
+        public function getTaskCandidate($taskId, $userId){
+            $query = "SELECT * FROM `Candidate` WHERE taskId=$taskId AND userId=$userId;";
+            $connection = $this->connect();
+
+            $stm = $connection->query($query);
+            $row = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+            return $row;
+        }
     }
 ?>

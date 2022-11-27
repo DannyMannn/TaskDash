@@ -25,6 +25,8 @@
             
             if(sizeof($user) != 0){
                 $user = $userDb->getUserById($userId)[0];
+                $stats = $userDb->getUserStats($user["userId"])[0]; // FIRST USER OF ARRAY LENGTH 1
+                $personalInfo = $userDb->getUserPersonalInfo($user["userId"])[0];
     ?>          
                 <div class="row document">
                     <div class="container">
@@ -33,18 +35,13 @@
                                 <img src="../../imgs/pfp.png" alt="pfpPic" id="pfp" class="img-user">
                             </div>
                             <div class="info-user">
-                                    <input type="hidden" name="userId" value="<?php echo $user['userId'] ?>"readonly>
-                                    <input class="form-control col-6" type="text" name="firstName" 
-                                        placeholder="Nombre" value="<?php echo $user['firstName']?>"readonly>
-                                    <br><br>
-                                    <input class="form-control col-6" type="text" name="lastName" 
-                                        placeholder="Apellido(s)" value="<?php echo $user['lastName']?>" readonly>
-
-                                    <br><br>
-                                    <input class="form-control col-6" type="email" name="email" 
-                                    placeholder="Email" value="<?php echo $user['email']?>" readonly>
-
-                                    <br><br>
+                                <h1><strong>Nombre:</strong> <?php echo $user["firstName"];?></h1><br>
+                                <h1><strong>Apellido(s):</strong> <?php echo $user["lastName"];?></h1><br>
+                                <h1><strong>Email:</strong> <?php echo $user["email"];?></h1><br>
+                                <h4>Reputation: <?php print($stats["reputation"])  ?></h4>
+                                <h4>Tasks Completed: <?php print($stats["tasksCompleted"])  ?></h4>
+                                <h4>Tasks Given: <?php print($stats["tasksGiven"])  ?></h4>
+                                <h4>Description: <?php print($personalInfo["description"])  ?></h4>
                             </div>
                     </div> 
     <?php
@@ -56,13 +53,13 @@
                             foreach($reviews as $row) {
                                 $rater = $userDb->getUserById($row["raterId"])[0]; // FIRST USER OF ARRAY LENGTH 1
                         ?>
-                        <?php echo "<a href='./dasherPage.php?ID={$row['userId']}' class='my-a my-card rounded shadow'>"  ?>
+                        <?php echo "<div class='my-a my-card rounded shadow'>"  ?>
 
                                 <h2><?php print("Nombre: ".$rater["firstName"]." ".$rater["lastName"])  ?></h2>
                                 <h4>Calidad General: <?php print($row["rating"])  ?></h4>
                                 <h4>Comentario: <?php print($row["comment"])  ?></h4>
 
-                        <?php echo "</a>" ?>
+                        <?php echo "</div>" ?>
 
                         <?php
                             }
@@ -71,7 +68,7 @@
 
 
                     <!--ADD A REVIEW-->
-                    <div class="form-container rounded-border bg-lightgrey">
+                    <div class="form-container rounded-border bg-lightgrey my-3">
                         <form action="../../../server/php/forms/createReview.php" method="POST">
                             <label for="rating">Calidad General (1 - 5)</label>
                             <input class="form-control" type="number" name="rating" min="1" max="5" required>
@@ -89,8 +86,6 @@
 
 
                 </div>
-
-
 
         
     <?php    

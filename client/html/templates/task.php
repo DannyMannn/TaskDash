@@ -48,7 +48,7 @@
             else{
         ?>
             <?php
-                if(sizeof($candidateDb->getCandidateByUserId($userId)) == 0 and $task['active'] == 1){
+                if(sizeof($taskDb->getTaskCandidate($taskId, $userId)) == 0 and $task['active'] == 1){
             ?>
 
             <form action="../../../server/php/forms/applyTask.php">
@@ -60,7 +60,7 @@
 
             <?php
                 }
-                else if(sizeof($candidateDb->getCandidateByUserId($userId)) > 0 and $task['active'] == 1){
+                else if(sizeof($taskDb->getTaskCandidate($taskId, $userId)) > 0 and $task['active'] == 1){
             ?>
 
                 <form action="../../../server/php/forms/unapplyTask.php">
