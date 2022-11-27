@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    font-family: 'Roboto', sans-serif;
+}
 .document{
     max-width: 1400px;
     padding: 15px 25px;
@@ -13,6 +17,28 @@
     max-width: 75%;
     margin: 0 auto;
     padding: 0 auto;
+}
+/*home*/
+.portada{
+    width: 90%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+#taskImg{
+    width: 100%
+}
+#eslogan{
+    margin: 1em auto;
+    width: 70%;
+    font-size: 6vw;
+    text-align: center;
+    font-weight: 800;
+}
+#info{
+    margin: 1em auto;
+    width: 70%;
+    text-align: center;
+    font-size: 4vw;
 }
 
 /*
@@ -47,14 +73,14 @@
 /* This is so we don't collide with bootstraps .card class*/
 .my-card{
     min-width: 300px;
-    max-width: 300px;
+    max-width: 50%;
 
-    min-height: 300px;
-    max-height: 300px;
+    min-height: 250px;
+    max-height: 350px;
 
     padding: 20px;
     margin: 15px;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .my-a{

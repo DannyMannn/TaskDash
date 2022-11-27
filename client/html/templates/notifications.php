@@ -35,19 +35,25 @@
                     <button class="btn btn-primary my-4">Create Notification</button>
             </a>
         <?php }else{ ?>
-            
-            <div>
-                <?php
-                    foreach($notifs as $row) {
-                        $creator = $userDb->getUserById($row["userSenderId"])[0]; // FIRST USER OF ARRAY LENGTH 1
-                    ?>
-                    <h2><?php print($creator['firstName'] . " - ". $creator['email']); ?><br></h2>
+                            
+            <?php
+                foreach($notifs as $row) {
+                    $creator = $userDb->getUserById($row["userSenderId"])[0]; // FIRST USER OF ARRAY LENGTH 1
+                ?>
+                <div class="alert alert-primary alert-dismissible fade show mt-2 mb-4" role="alert">
+
+                    <h2><strong><?php print($creator['firstName'] . " - ". $creator['email']); ?><br></strong></h2>
                     <h3><?php print("Descripción:<br>". $row['description']) ."<br>" ?></h3> 
                     <h4><?php print("Fecha: ".$row['dateCreated']) ?></h4>
-                    <?php
-                        }
-                    ?>
-            </div>
+                    <form action ="../../../server/php/forms/deleteNotification.php" method="POST">
+                        <input type="hidden" name="notificationId" value="<?php echo $row['notificationId'] ?>">
+                        <button type="submit" class="btn-close" data-bs-dismiss="alert" aria-label="Close" name="submit"></button>
+                    </form>
+                </div>
+                <?php
+                    }
+                ?>
+                    
         <?php } ?>
 
     <?php }else{ ?>

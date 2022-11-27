@@ -33,16 +33,16 @@
                                 <img src="../../imgs/pfp.png" alt="pfpPic" id="pfp" class="img-user">
                             </div>
                             <div class="info-user">
-                                    <input type="hidden" name="userId" value="<?php echo $user['userId'] ?>">
+                                    <input type="hidden" name="userId" value="<?php echo $user['userId'] ?>"readonly>
                                     <input class="form-control col-6" type="text" name="firstName" 
-                                        placeholder="Nombre" value="<?php echo $user['firstName']?>">
+                                        placeholder="Nombre" value="<?php echo $user['firstName']?>"readonly>
                                     <br><br>
                                     <input class="form-control col-6" type="text" name="lastName" 
-                                        placeholder="Apellido(s)" value="<?php echo $user['lastName']?>" >
+                                        placeholder="Apellido(s)" value="<?php echo $user['lastName']?>" readonly>
 
                                     <br><br>
                                     <input class="form-control col-6" type="email" name="email" 
-                                    placeholder="Email" value="<?php echo $user['email']?>" >
+                                    placeholder="Email" value="<?php echo $user['email']?>" readonly>
 
                                     <br><br>
                             </div>

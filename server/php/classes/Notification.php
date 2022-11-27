@@ -24,6 +24,15 @@
             $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $row;
         }
+        
+        public function deleteNotifById($notifId){
+            $query = "DELETE FROM `Notification` WHERE notificationId ='$notifId';";
+            $connection = $this->connect();
+
+            $stmt = $connection->query($query);
+            $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        }
     }
 
 ?>
