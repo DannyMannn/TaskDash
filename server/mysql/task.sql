@@ -10,4 +10,15 @@ CREATE TABLE `Task`(
 ALTER TABLE `Task`
     ADD CONSTRAINT fk_userId_task
     FOREIGN KEY (userIdCreator)
-    REFERENCES usuario(userId);
+    REFERENCES usuario(userId)
+    -- ON DELETE CASCADE;
+
+--esto se escribe dentro del sql para generar el cascade
+ALTER TABLE `Task`
+DROP FOREIGN KEY fk_userId_task;
+
+ALTER TABLE `Task`
+ADD CONSTRAINT fk_userId_task
+    FOREIGN KEY (userIdCreator)
+    REFERENCES usuario(userId)
+    ON DELETE CASCADE;

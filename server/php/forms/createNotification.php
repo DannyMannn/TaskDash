@@ -17,5 +17,4 @@
         // redirect (en el futuro redireccionar a página del Task)
         header("location: ../../../client/html/templates/notifications.php");
     }
-
 ?>

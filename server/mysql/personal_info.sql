@@ -10,4 +10,15 @@ CREATE TABLE `PersonalInfo`(
 ALTER TABLE `PersonalInfo`
     ADD CONSTRAINT fk_userId
     FOREIGN KEY (userId)
-    REFERENCES usuario(userId);
+    REFERENCES usuario(userId)
+    ON DELETE CASCADE;
+
+--esto es lo que se escribe en sql para modificar el foreign key
+ALTER TABLE `PersonalInfo`
+    DROP FOREIGN KEY fk_userId;
+
+ALTER TABLE `PersonalInfo`
+    ADD CONSTRAINT fk_userId
+    FOREIGN KEY (userId)
+    REFERENCES usuario(userId)
+    ON DELETE CASCADE;

@@ -21,29 +21,36 @@
 <body>
     <?php include("../components/navBar.php"); ?>
     <div class="document">
-        <a href="./createTask.php">
-            <button class="btn btn-primary my-4">Create Task</button>
-        </a>
-        
-        <h1>Selecciona Un Task!</h1>
+        <?php if(isset($_SESSION['email'])){ ?>
+            <a href="./createTask.php">
+                <button class="btn btn-primary my-4">Create Task</button>
+            </a>
+            
+            <h1>Selecciona Un Task!</h1>
 
-        <div class="my-card-container">
-            <?php
-                foreach($tasks as $row) {
-                    $creator = $userDb->getUserById($row["userIdCreator"])[0]; // FIRST USER OF ARRAY LENGTH 1
-            ?>
-            <?php echo "<a href='./task.php?ID={$row['taskId']}' class='my-a my-card rounded shadow'>"  ?>
+            <div class="my-card-container">
+                <?php
+                    foreach($tasks as $row) {
+                        $creator = $userDb->getUserById($row["userIdCreator"])[0]; // FIRST USER OF ARRAY LENGTH 1
+                ?>
+                <?php echo "<a href='./task.php?ID={$row['taskId']}' class='my-a my-card rounded shadow'>"  ?>
 
-                    <h2><?php print("Pago: \$".$row['payment'])  ?></h2>
-                    <h4><?php print("Descripción: ".$row['description'])  ?></h4>
-                    <h5><?php print("Creada por: ".$creator['firstName']." ".$creator['lastName'] )  ?></h5>
+                        <h2><?php print("Pago: \$".$row['payment'])  ?></h2>
+                        <h4><?php print("Descripción: ".$row['description'])  ?></h4>
+                        <h5><?php print("Creada por: ".$creator['firstName']." ".$creator['lastName'] )  ?></h5>
 
-            <?php echo "</a>" ?>
+                <?php echo "</a>" ?>
 
-            <?php
-                }
-            ?>
-        </div>
+                <?php
+                    }
+                ?>
+            </div>
+        <?php }else{  ?>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>¡Alto ahí!</strong> Necesitas tener una cuenta.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php } ?>
     </div>
      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

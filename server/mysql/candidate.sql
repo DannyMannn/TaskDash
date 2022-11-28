@@ -8,8 +8,20 @@ CREATE TABLE `Candidate`(
 ALTER TABLE `Candidate`
     ADD CONSTRAINT fk_userId_candidate
     FOREIGN KEY (userId)
-    REFERENCES usuario(userId);
+    REFERENCES usuario(userId)
+    -- ON DELETE CASCADE;
+
 ALTER TABLE `Candidate`
     ADD CONSTRAINT fk_taskId_candidate
     FOREIGN KEY (taskId)
     REFERENCES task(taskId);
+
+--esto es lo que debe de ir dentro de sql para cascade
+ALTER TABLE `Candidate`
+    DROP FOREIGN KEY fk_userId_candidate;
+
+ALTER TABLE `Candidate`
+    ADD CONSTRAINT fk_userId_candidate
+    FOREIGN KEY (userId)
+    REFERENCES usuario(userId)
+    ON DELETE CASCADE;
