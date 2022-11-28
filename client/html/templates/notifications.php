@@ -51,7 +51,10 @@
                         <input type="hidden" name="notificationId" value="<?php echo $row['notificationId'] ?>">
                         <button type="submit" class="btn-close" data-bs-dismiss="alert" aria-label="Close" name="submit"></button>
                     </form>
-                    <button type="button"><a href="./createNotif.php"></a></button>
+                    <button type="button" class="btn btn-primary mx-2" name="respuesta" value="respuesta">
+                        <a href="./createNotif.php" style="text-decoration:none; color:white;">Respuesta</a>
+                    </button>
+                    <!-- <button type="button" class="btn btn-info"><a href="./createNotif.php"></a></button> -->
                 </div>
                 <?php
                     }
