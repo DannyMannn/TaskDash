@@ -10,9 +10,12 @@
         $lastName = $_REQUEST['lastName'];
         $email = $_REQUEST['email'];
         $password = $_REQUEST['password'];
+        $phoneNumber = $_REQUEST['phoneNumber'];
+        $city = $_REQUEST['city'];
+        $description = $_REQUEST['description'];
 
         //update
-        $updateController = new UpdateUserController($userId,$firstName,$lastName,$email,$password);
+        $updateController = new UpdateUserController($userId,$firstName,$lastName,$email,$password, $phoneNumber, $city, $description);
         $updateController->update();
 
         //redirect

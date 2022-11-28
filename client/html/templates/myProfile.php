@@ -9,6 +9,7 @@
         $userId = $_SESSION["userId"];
         $user = $userDb->getUserById($userId)[0];
         $userCreatedTasks = $userDb->getUserCreatedTasks($user["userId"]);
+        $userInfo = $userDb->getUserPersonalInfo($userId)[0];
     }
 ?>
 
@@ -31,11 +32,14 @@
                         <h1><strong>Nombre:</strong> <?php echo $user["firstName"];?></h1><br>
                         <h1><strong>Apellido(s):</strong> <?php echo $user["lastName"];?></h1><br>
                         <h1><strong>Email:</strong> <?php echo $user["email"];?></h1><br>
+                        <h1><strong>Celular:</strong> <?php echo $userInfo["phoneNumber"];?></h1><br>
+                        <h1><strong>Ciudad:</strong> <?php echo $userInfo["city"];?></h1><br>
+                        <h1><strong>Description:</strong> <?php echo $userInfo["description"];?></h1><br>
                     </div>
                     <!-- <form action="../../../server/php/forms/updateUser.php" method="POST"> -->
-                    <div class="float-end mx-5 mt-5">
+                    <div class="my-text-right px-3">
                         <a href="./updateMyProfile.php">
-                            <button type="button" class="btn btn-primary mx-2 btn-lg" name="updateMyProfile" value="update">Actualizar</button>
+                            <button type="button" class="btn btn-primary mx-2 btn-lg my-4" name="updateMyProfile" value="update">Actualizar</button>
                         </a>
                     </div>
                     <!-- </form> -->

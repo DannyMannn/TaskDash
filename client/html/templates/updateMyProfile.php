@@ -8,6 +8,7 @@
     if(isset($_SESSION["userId"])){
         $userId = $_SESSION["userId"];
         $user = $userDb->getUserById($userId)[0];
+        $userInfo = $userDb->getUserPersonalInfo($userId)[0];
     }
 ?>
 
@@ -26,25 +27,48 @@
                     <div class="pic"> 
                         <img src="../../imgs/pfp.png" alt="pfpPic" id="pfp" class="img-user">
                     </div>
-                    <div class="info-user">
+                    <div class="info-user my-text-left">
                         <form action="../../../server/php/forms/updateUser.php" method="POST">
                             <input type="hidden" name="userId" value="<?php echo $user['userId'] ?>">
-                            <input class="form-control col-6" type="text" name="firstName" 
+
+                            <label for="firstName">Primer Nombre:</label>
+                            <input class="form-control" type="text" name="firstName" 
                                 placeholder="Nombre" value="<?php echo $user['firstName']?>">
-                            <br><br>
-                            <input class="form-control col-6" type="text" name="lastName" 
+                            <br>
+
+                            <label for="lastName">Apellido(s):</label>
+                            <input class="form-control" type="text" name="lastName" 
                                 placeholder="Apellido(s)" value="<?php echo $user['lastName']?>" >
+                            <br>
 
-                            <br><br>
-                            <input class="form-control col-6" type="email" name="email" 
+                            <label for="email">Email:</label>
+                            <input class="form-control" type="email" name="email" 
                             placeholder="Email" value="<?php echo $user['email']?>" >
-
-                            <br><br>
-                            <input class="form-control col-6" type="password" name="password" 
-                            placeholder="Password" value="<?php echo $user['uPassword'] ?>">
-                            <br><br>
+                            <br>
                             
-                            <button type="submit" class="btn btn-primary mx-2" name="submit" value="update">Actualizar</button>
+                            <label for="password">Password:</label>
+                            <input class="form-control" type="password" name="password" 
+                            placeholder="Password" value="<?php echo $user['uPassword'] ?>">
+                            <br>
+
+                            <label for="city">Ciudad:</label>
+                            <input class="form-control" type="text" name="city" 
+                            value="<?php echo $userInfo['city'] ?>">
+                            <br>
+                            
+                            <label for="phoneNumber">Número Telefónico:</label>
+                            <input class="form-control" type="text" name="phoneNumber" 
+                            value="<?php echo $userInfo['phoneNumber'] ?>" maxlength="10">
+                            <br>
+
+                            <label for="description">Descripción:</label>
+                            <textarea class="form-control" type="text" name="description" 
+                            ><?php echo $userInfo["description"] ?></textarea>
+                            <br>
+                            
+                            <div class="my-text-center">
+                                <button type="submit" class="btn btn-primary mx-2 my-3" name="submit" value="update">Actualizar</button>
+                            </div>
 
                         </form>
                 </div>

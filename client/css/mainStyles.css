@@ -100,7 +100,7 @@
     -moz-box-shadow: 0 0 5px 2px #bfc0c0;
     box-shadow: 0 0 5px 2px #bfc0c0;
     width: 75%;
-    height: 530px;
+    height: auto;
     margin: 5em auto 3em;
     box-sizing: border-box;
 }
@@ -122,6 +122,18 @@
     height: 120px;
     margin: 0px auto;
     overflow: hidden;
+}
+
+.my-text-right{
+    text-align: end;
+}
+
+.my-text-left{
+    text-align: left;
+}
+
+.my-text-center{
+    text-align: center;
 }
 
 @media screen and (max-width: 1000px){

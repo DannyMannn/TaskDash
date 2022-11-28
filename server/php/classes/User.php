@@ -82,6 +82,15 @@
             return $row;
         }
 
+        public function updatePersonalInfo($userId, $phoneNumber, $city, $description){
+            $query = "UPDATE `PersonalInfo` SET phoneNumber = '$phoneNumber', city = '$city', description = '$description'  WHERE userId=$userId;";
+            $connection = $this->connect();
+
+            $stmt = $connection->query($query);
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
         public function getUserCreatedTasks($userIdCreator){
             $query = "SELECT * FROM `Task` WHERE userIdCreator=$userIdCreator;";
             $connection = $this->connect();
