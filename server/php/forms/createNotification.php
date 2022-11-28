@@ -4,9 +4,10 @@
     include("../classes/User.php");
 
     if(isset($_REQUEST["submit"])){
+        session_start();
         $emailReceiver = $_REQUEST['emailReceiver'];
         $description = $_REQUEST['description'];
-        $userId = $_SESSION["userId"];
+        $userId = $_REQUEST["userId"];
         
         $userDb = new User;
         $userReceiverId = $userDb->getUserByEmail($emailReceiver);

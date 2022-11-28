@@ -34,7 +34,7 @@
 
                             <label>Email a quien le envias la notificación</label>
                             <input class="form-control col-6" type="email" name="emailReceiver" 
-                                placeholder="Email">
+                                placeholder="Email" required>
                             <br><br>
 
                             <label class="col-6" for="description">Descripción: </label>

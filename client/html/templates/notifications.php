@@ -42,13 +42,16 @@
                 ?>
                 <div class="alert alert-primary alert-dismissible fade show mt-2 mb-4" role="alert">
 
-                    <h2><strong><?php print($creator['firstName'] . " - ". $creator['email']); ?><br></strong></h2>
+                    <h2><strong>
+                        <?php print($creator['firstName'] . " - ". $creator['email']); ?><br>
+                    </strong></h2>
                     <h3><?php print("Descripción:<br>". $row['description']) ."<br>" ?></h3> 
                     <h4><?php print("Fecha: ".$row['dateCreated']) ?></h4>
                     <form action ="../../../server/php/forms/deleteNotification.php" method="POST">
                         <input type="hidden" name="notificationId" value="<?php echo $row['notificationId'] ?>">
                         <button type="submit" class="btn-close" data-bs-dismiss="alert" aria-label="Close" name="submit"></button>
                     </form>
+                    <button type="button"><a href="./createNotif.php"></a></button>
                 </div>
                 <?php
                     }
